@@ -1,5 +1,7 @@
 const allTabsBody = document.querySelectorAll('.tab-body-single');
 const allTabsHead = document.querySelectorAll('.tab-head-single');
+const searchFrom = document.querySelector('.app-header-search')
+let searchList = document.getElementById('search-list')
 
 let activeTab = 1, allData;
 
@@ -30,3 +32,12 @@ allTabsHead.forEach(singleTabHead => {
         showActiveTabBody();
     });
 });
+
+const getInputValue = (event)=>{
+    event.preventDefault();
+    let searchText = searchFrom.search.value
+    fetchAllSuperHero(searchText);
+}
+//search from submission
+searchFrom.addEventListener('submit', getInputValue)
+
